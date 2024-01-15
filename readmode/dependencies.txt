@@ -1,0 +1,8 @@
+Curl
+https://curl.se/
+
+Mozilla Readabiilty-CLI
+https://gitlab.com/gardenappl/readability-cli/-/tree/main
+
+Node.JS  (required to install Mozilla Readabiilty-CLI)
+https://nodejs.org/en

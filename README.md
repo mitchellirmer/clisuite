@@ -17,14 +17,10 @@ speckify is a streaming library user interface.  It uses mpv --no-video to strea
 1. Save/clone into /home/user/.clisuite/  
 2. Add the following to your .zshrc or .bashrc or whatever handles your aliases.  
 
-########################################################  
 ############## CLISUITE "INSTALLATION" #################  
-########################################################  
-
 alias metube='sh $HOME/.clisuite/metube/metube.sh'  
 alias readmode='sh $HOME/.clisuite/readmode/readmode.sh'  
 alias speckify='sh $HOME/.clisuite/speckify/speckify.sh'  
-
 ########################################################
 
 3. To use readmode as a macro from newsboat, add this to your .newsboat/config  

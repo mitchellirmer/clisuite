@@ -31,14 +31,14 @@ elif [ $1 == "-c" ] || [ $1 == "choose" ]; then
 elif [ $1 == "play" ]; then
     cd $pl_loc
     list="$2"
-    mpv --no-video ${pl_loc}$list
+    mpv --no-video ${pl_loc}${list}.m3u
 elif [ $1 == "shuffle" ]; then
     cd $pl_loc
     list="$2"
-    mpv --no-video --shuffle ${pl_loc}$list
+    mpv --no-video --shuffle ${pl_loc}${list}.m3u
 elif [ $1 == "library" ]; then
     cd $pl_loc
-    ls *.m3u | more
+    ls *.m3u | cut -f1 -d. | more
 else
     printHelp
 fi

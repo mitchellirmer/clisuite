@@ -22,12 +22,12 @@ speckify is a streaming library user interface.  It uses mpv --no-video to strea
 1. Save/clone into /home/user/.clisuite/  
 2. Add the following to your .zshrc or .bashrc or whatever handles your aliases.  
 
->####### CLISUITE "INSTALLATION" BELOW  
-alias metube='sh $HOME/.clisuite/metube/metube.sh'  
-alias readmode='sh $HOME/.clisuite/readmode/readmode.sh'  
-alias speckify='sh $HOME/.clisuite/speckify/speckify.sh'  
-#######  END CLISUITE "INSTALLATION"
+>####### CLISUITE INSTALLATION BELOW  
+alias metube='sh $HOME/.clisuite/src/metube.sh'  
+alias readmode='sh $HOME/.clisuite/src/readmode.sh'  
+alias speckify='sh $HOME/.clisuite/src/speckify.sh'  
+#######  END CLISUITE INSTALLATION
 
 3. To use readmode as a macro from newsboat, add this to your .newsboat/config  
-> macro r set browser "sh $HOME/.clisuite/readmode/readmode.sh" ; open-in-browser ; set browser w3m/lynx/firefox
+> macro r set browser "sh $HOME/.clisuite/readmode.sh" ; open-in-browser ; set browser w3m/lynx/firefox
 4. By default, speckify will save playlists to $HOME/Music/Stream/Playlists/  This can be changed by updating the "pl_loc" variable in the metube.sh and speckify.sh files.

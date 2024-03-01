@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-03-01 Fri 13:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>clisuite Documentation</title>
+<meta name="author" content="Mitchell" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="clisuite.css"/>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+<style type="text/css">
+ pre.src {background-color: #242424; color: #f6f3e8;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">clisuite Documentation</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orged2a74d">1. Index</a>
+<ul>
+<li><a href="#orgdc7b749">1.1. About</a></li>
+<li><a href="#org8a8f993">1.2. Usage</a></li>
+</ul>
+</li>
+<li><a href="#org54e414f">2. Metube</a>
+<ul>
+<li><a href="#org39a5323">2.1. Source Code</a>
+<ul>
+<li><a href="#orgf7bb740">2.1.1. Header stuff</a></li>
+<li><a href="#orge9582b4">2.1.2. Set up an internal path variable</a></li>
+<li><a href="#orgf54151d">2.1.3. Help menu</a></li>
+<li><a href="#org6533436">2.1.4. Main program</a></li>
+</ul>
+</li>
+<li><a href="#org8c9ba8d">2.2. License</a>
+<ul>
+<li><a href="#orge33a57f">2.2.1. GPL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org31817e9">3. Speckify</a>
+<ul>
+<li><a href="#org5214576">3.1. Source Code</a>
+<ul>
+<li><a href="#org9cde189">3.1.1. Header stuff</a></li>
+<li><a href="#orgdc4b6da">3.1.2. Set up an internal path variable</a></li>
+<li><a href="#org088ebe7">3.1.3. Help menu</a></li>
+<li><a href="#orgeb85c7c">3.1.4. Main program</a></li>
+</ul>
+</li>
+<li><a href="#orga81102d">3.2. License</a>
+<ul>
+<li><a href="#org6ffbc44">3.2.1. GPL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd6ebfa6">4. Readmode</a>
+<ul>
+<li><a href="#org7cecf56">4.1. Source code</a>
+<ul>
+<li><a href="#orgff593ef">4.1.1. Header stuff</a></li>
+<li><a href="#orgce4abe9">4.1.2. Internal path for temp files</a></li>
+<li><a href="#org9965361">4.1.3. Main program</a></li>
+</ul>
+</li>
+<li><a href="#org157adf9">4.2. License</a></li>
+</ul>
+</li>
+<li><a href="#org7346eb5">5. Dependencies</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org3ea4d24">5.0.1. MPV</a></li>
+<li><a href="#org044a319">5.0.2. yt-dlp</a></li>
+<li><a href="#orgef3526f">5.0.3. readability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orged2a74d" class="outline-2">
+<h2 id="orged2a74d"><span class="section-number-2">1.</span> Index</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgdc7b749" class="outline-3">
+<h3 id="orgdc7b749"><span class="section-number-3">1.1.</span> About</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+These are my personal scripts that I use to improve my user experience with streamed multi-media and written content.  They are stored here as a backup for me and reference for others that want to practice scripting for regular tasks.  Should you choose to download these, know that it is at your own risk and there is no warranty of any kind.
+</p>
+</div>
+</div>
+<div id="outline-container-org8a8f993" class="outline-3">
+<h3 id="org8a8f993"><span class="section-number-3">1.2.</span> Usage</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+"Install" the programs by downloading/cloning into $HOME/.clisuite and adding the following aliases to your .bashrc or .zshrc or similar:
+</p>
+<div class="org-src-container">
+<pre class="src src-text">####### CLISUITE "INSTALLATION" BELOW  
+alias metube='sh $HOME/.clisuite/metube/metube.sh'  
+alias readmode='sh $HOME/.clisuite/readmode/readmode.sh'  
+alias speckify='sh $HOME/.clisuite/speckify/speckify.sh'  
+#######  END CLISUITE "INSTALLATION"
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org54e414f" class="outline-2">
+<h2 id="org54e414f"><span class="section-number-2">2.</span> Metube</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Use this to stream music or videos from the internet, especially Youtube.  Has a function to search Youtube via yt-dlp.  Built on mpv, yt-dlp, sed, grep.
+</p>
+</div>
+
+<div id="outline-container-org39a5323" class="outline-3">
+<h3 id="org39a5323"><span class="section-number-3">2.1.</span> Source Code</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-orgf7bb740" class="outline-4">
+<h4 id="orgf7bb740"><span class="section-number-4">2.1.1.</span> Header stuff</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+I put these lines in my scripts so that I can grep the := to be reminded of what my scripts do.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #8892A4;"># </span><span style="color: #99968b;">YouTube Search</span>
+<span style="color: #8892A4;"># </span><span style="color: #99968b;">:= CLI for searching YouTube.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge9582b4" class="outline-4">
+<h4 id="orge9582b4"><span class="section-number-4">2.1.2.</span> Set up an internal path variable</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+This will be used to integrate speckify with metube and handle temp files generated while using this script.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #cae682;">path</span>=<span style="color: #95e454;">"$HOME/.clisuite/metube/"</span>
+<span style="color: #cae682;">pl_loc</span>=<span style="color: #95e454;">"$HOME/Music/Stream/Playlists/"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf54151d" class="outline-4">
+<h4 id="orgf54151d"><span class="section-number-4">2.1.3.</span> Help menu</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #cae682;">printHelp</span>(){
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"========METUBE HELP=========="</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"metube &lt;option&gt; &lt;argument(s)&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"EXAMPLE:  metube search \"nebraska football\" 5"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"1)  &lt; -s or search&gt;  &lt;\"search terms\"&gt;               &lt;number of desired search results&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"2)  &lt; -d or desc&gt;    &lt;line number of video title&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"3)  &lt; -p or play&gt;    &lt;line number of video title&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"4)  &lt; -a or add&gt;     &lt;line number of video title&gt;   &lt;\"Playlist_Title\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"5)  &lt; -c or copy&gt;    &lt;YouTube playlist URL&gt;         &lt;\"Local Title\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"6)  &lt; -e or export&gt;  &lt;\"Playlist_Title\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"=============================="</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6533436" class="outline-4">
+<h4 id="org6533436"><span class="section-number-4">2.1.4.</span> Main program</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #8ac6f2; font-weight: bold;">if</span> [ -z <span style="color: #95e454;">"$1"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    printHelp
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-s"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"search"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    rm ${<span style="color: #cae682;">path</span>}ytreturn.txt
+    yt-dlp --print title --print uploader --print webpage_url <span style="color: #95e454;">"ytsearch$3:$2"</span> &gt; ${<span style="color: #cae682;">path</span>}ytreturn.txt
+    cat -n ${<span style="color: #cae682;">path</span>}ytreturn.txt
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-d"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"desc"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">declare</span> <span style="color: #cae682;">line</span>=$<span style="color: #cae682;">2</span>
+    <span style="color: #cae682;">line</span>=$((${<span style="color: #cae682;">line</span>} + 2))
+    <span style="color: #cae682;">line</span>=<span style="color: #95e454;">"${line}p"</span>
+    <span style="color: #cae682;">track</span>=$(sed -n $<span style="color: #cae682;">line</span> ${<span style="color: #cae682;">path</span>}ytreturn.txt)
+    yt-dlp --print title --print uploader --print upload_date --print webpage_url --print description $<span style="color: #cae682;">track</span>
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-p"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"play"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">declare</span> <span style="color: #cae682;">line</span>=$<span style="color: #cae682;">2</span>
+    <span style="color: #cae682;">line</span>=$((${<span style="color: #cae682;">line</span>} + 2))
+    <span style="color: #cae682;">line</span>=<span style="color: #95e454;">"${line}p"</span>
+    <span style="color: #cae682;">track</span>=$(sed -n $<span style="color: #cae682;">line</span> ${<span style="color: #cae682;">path</span>}ytreturn.txt)
+    mpv $<span style="color: #cae682;">track</span>
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> ( [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-a"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"add"</span> ] ) &amp;&amp; [[ <span style="color: #81a1c1;">!</span> -z <span style="color: #95e454;">"$3"</span> ]]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">declare</span> <span style="color: #cae682;">line</span>=$<span style="color: #cae682;">2</span>
+    <span style="color: #cae682;">address</span>=$((${<span style="color: #cae682;">line</span>} + 2))
+    <span style="color: #cae682;">line</span>=<span style="color: #95e454;">"${line}p"</span>
+    <span style="color: #cae682;">address</span>=<span style="color: #95e454;">"${address}p"</span>
+    <span style="color: #cae682;">track</span>=$(sed -n $<span style="color: #cae682;">line</span> ${<span style="color: #cae682;">path</span>}ytreturn.txt)
+    <span style="color: #cae682;">url</span>=$(sed -n $<span style="color: #cae682;">address</span> ${<span style="color: #cae682;">path</span>}ytreturn.txt)
+    <span style="color: #e5786d;">echo</span> $<span style="color: #cae682;">track</span> &gt; ${<span style="color: #cae682;">path</span>}tmptitle.txt
+    <span style="color: #e5786d;">echo</span> $<span style="color: #cae682;">url</span> &gt; ${<span style="color: #cae682;">path</span>}tmpurl.txt
+    paste ${<span style="color: #cae682;">path</span>}tmpurl.txt ${<span style="color: #cae682;">path</span>}tmptitle.txt &gt;&gt; ${<span style="color: #cae682;">path</span>}${<span style="color: #cae682;">3</span>}.m3u
+    rm ${<span style="color: #cae682;">path</span>}tmptitle.txt ${<span style="color: #cae682;">path</span>}tmpurl.txt
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-c"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"copy"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #cae682;">id</span>=<span style="color: #95e454;">"$(echo $2 | cut -f2- -d=)"</span>
+    <span style="color: #cae682;">prefix</span>=<span style="color: #95e454;">'https://www.youtube.com/playlist?list='</span>
+    <span style="color: #cae682;">fullurl</span>=<span style="color: #95e454;">"${prefix}${id}"</span>
+    yt-dlp --print title --print webpage_url <span style="color: #95e454;">"$fullurl"</span> &gt; tempfile
+    grep -e <span style="color: #95e454;">"http"</span> tempfile &gt; urls
+    grep -v <span style="color: #95e454;">"http"</span> tempfile &gt; titles
+    paste urls titles &gt; <span style="color: #95e454;">"$3"</span>.m3u
+    rm tempfile; rm urls; rm titles
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-e"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"export"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    cp -v -i ${<span style="color: #cae682;">path</span>}${<span style="color: #cae682;">2</span>}.m3u ${<span style="color: #cae682;">pl_loc</span>}${<span style="color: #cae682;">2</span>}.m3u
+<span style="color: #8ac6f2; font-weight: bold;">else</span>
+    printHelp
+<span style="color: #8ac6f2; font-weight: bold;">fi</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8c9ba8d" class="outline-3">
+<h3 id="org8c9ba8d"><span class="section-number-3">2.2.</span> License</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orge33a57f" class="outline-4">
+<h4 id="orge33a57f"><span class="section-number-4">2.2.1.</span> GPL</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p target="_blank">
+A copy of the license is <a href="Licenses/LICENSE.md" target="_blank">here</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org31817e9" class="outline-2">
+<h2 id="org31817e9"><span class="section-number-2">3.</span> Speckify</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Use this to stream music from the internet or from playlist files containing file locations or URLs.  Built on mpv, ytdlp, sed, grep.
+</p>
+</div>
+
+<div id="outline-container-org5214576" class="outline-3">
+<h3 id="org5214576"><span class="section-number-3">3.1.</span> Source Code</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org9cde189" class="outline-4">
+<h4 id="org9cde189"><span class="section-number-4">3.1.1.</span> Header stuff</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+I put these lines in my scripts so that I can grep the := to be reminded of what my scripts do.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">  <span style="color: #8892A4;"># </span><span style="color: #99968b;">Speckify Music</span>
+  <span style="color: #8892A4;"># </span><span style="color: #99968b;">:= Searches all playlists in the folder; returns output to screen and out.m3u playlist.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc4b6da" class="outline-4">
+<h4 id="orgdc4b6da"><span class="section-number-4">3.1.2.</span> Set up an internal path variable</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+This will be used to integrate speckify with metube and handle temp files generated while using this script.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #cae682;">path</span>=<span style="color: #95e454;">"$HOME/.clisuite/speckify/"</span>
+<span style="color: #cae682;">pl_loc</span>=<span style="color: #95e454;">"$HOME/Music/Stream/Playlists/"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org088ebe7" class="outline-4">
+<h4 id="org088ebe7"><span class="section-number-4">3.1.3.</span> Help menu</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #cae682;">printHelp</span>(){
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"========SPECKIFY HELP=========="</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"speckify &lt;option&gt; &lt;argument(s)&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"EXAMPLE:  speckify search \"heads carolina\""</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"1)  &lt; -s or search &gt; &lt;\"search terms\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"2)  &lt; -c or choose &gt; &lt;line number of track title&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"3)  &lt; play &gt;         &lt;\"PlaylistName\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"4)  &lt; shuffle &gt;      &lt;\"PlaylistName\"&gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"5)  &lt; library &gt;"</span>
+    <span style="color: #e5786d;">echo</span> <span style="color: #95e454;">"=============================="</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb85c7c" class="outline-4">
+<h4 id="orgeb85c7c"><span class="section-number-4">3.1.4.</span> Main program</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #8ac6f2; font-weight: bold;">if</span> [ -z <span style="color: #95e454;">"$1"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    printHelp
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-s"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"search"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">cd</span> $<span style="color: #cae682;">pl_loc</span>
+    rm msearch.m3u
+    grep -i <span style="color: #95e454;">"$2"</span> *.m3u | cut -f2- -d: &gt; msearch.m3u
+    cat -n msearch.m3u
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"-c"</span> ] || [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"choose"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">cd</span> $<span style="color: #cae682;">pl_loc</span>
+    <span style="color: #cae682;">line</span>=$<span style="color: #cae682;">2</span>
+    <span style="color: #cae682;">line</span>=<span style="color: #95e454;">"${line}p"</span>
+    <span style="color: #cae682;">track</span>=$(sed -n $<span style="color: #cae682;">line</span> msearch.m3u)
+    mpv --no-video $<span style="color: #cae682;">track</span>
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"play"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">cd</span> $<span style="color: #cae682;">pl_loc</span>
+    <span style="color: #cae682;">list</span>=<span style="color: #95e454;">"$2"</span>
+    mpv --no-video ${<span style="color: #cae682;">pl_loc</span>}${<span style="color: #cae682;">list</span>}.m3u
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"shuffle"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">cd</span> $<span style="color: #cae682;">pl_loc</span>
+    <span style="color: #cae682;">list</span>=<span style="color: #95e454;">"$2"</span>
+    mpv --no-video --shuffle ${<span style="color: #cae682;">pl_loc</span>}${<span style="color: #cae682;">list</span>}.m3u
+<span style="color: #8ac6f2; font-weight: bold;">elif</span> [ $<span style="color: #cae682;">1</span> == <span style="color: #95e454;">"library"</span> ]; <span style="color: #8ac6f2; font-weight: bold;">then</span>
+    <span style="color: #e5786d;">cd</span> $<span style="color: #cae682;">pl_loc</span>
+    ls *.m3u | cut -f1 -d. | more
+<span style="color: #8ac6f2; font-weight: bold;">else</span>
+    printHelp
+<span style="color: #8ac6f2; font-weight: bold;">fi</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga81102d" class="outline-3">
+<h3 id="orga81102d"><span class="section-number-3">3.2.</span> License</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org6ffbc44" class="outline-4">
+<h4 id="org6ffbc44"><span class="section-number-4">3.2.1.</span> GPL</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p target="_blank">
+A copy of the license is <a href="Licenses/LICENSE.md" target="_blank">here</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd6ebfa6" class="outline-2">
+<h2 id="orgd6ebfa6"><span class="section-number-2">4.</span> Readmode</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org7cecf56" class="outline-3">
+<h3 id="org7cecf56"><span class="section-number-3">4.1.</span> Source code</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orgff593ef" class="outline-4">
+<h4 id="orgff593ef"><span class="section-number-4">4.1.1.</span> Header stuff</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+The same header stuff I use to make it greppable 
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #8892A4;"># </span><span style="color: #99968b;">Read Mode</span>
+<span style="color: #8892A4;"># </span><span style="color: #99968b;">:= Takes a URL as input and feeds it to Mozilla Readability.  Read in w3m.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce4abe9" class="outline-4">
+<h4 id="orgce4abe9"><span class="section-number-4">4.1.2.</span> Internal path for temp files</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #cae682;">path</span>=<span style="color: #95e454;">"$HOME/.clisuite/readmode/"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9965361" class="outline-4">
+<h4 id="org9965361"><span class="section-number-4">4.1.3.</span> Main program</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+Requires readability to be installed already.  I used JS node.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">curl $<span style="color: #cae682;">1</span> | readability $<span style="color: #cae682;">1</span> &gt; ${<span style="color: #cae682;">path</span>}readmodetempfile.html
+w3m ${<span style="color: #cae682;">path</span>}readmodetempfile.html
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org157adf9" class="outline-3">
+<h3 id="org157adf9"><span class="section-number-3">4.2.</span> License</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Mozilla readability has an Apache 2.0 license, found <a href="Licenses/APACHE.md">here</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7346eb5" class="outline-2">
+<h2 id="org7346eb5"><span class="section-number-2">5.</span> Dependencies</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org3ea4d24" class="outline-4">
+<h4 id="org3ea4d24"><span class="section-number-4">5.0.1.</span> MPV</h4>
+<div class="outline-text-4" id="text-5-0-1">
+<p target="_blank">
+A lightweight, command-line video player available <a href="https://github.com/mpv-player/mpv" target="_blank">here</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org044a319" class="outline-4">
+<h4 id="org044a319"><span class="section-number-4">5.0.2.</span> yt-dlp</h4>
+<div class="outline-text-4" id="text-5-0-2">
+<p target="_blank">
+Command-line interface for interacting with YouTube and other video/audio hosted on https, available <a href="https://github.com/yt-dlp/yt-dlp" target="_blank">here</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgef3526f" class="outline-4">
+<h4 id="orgef3526f"><span class="section-number-4">5.0.3.</span> readability</h4>
+<div class="outline-text-4" id="text-5-0-3">
+<p target="_blank">
+Mozilla readability for isolating body of HTML pages, installed from <a href="https://www.npmjs.com/package/readability-cli/v/2.4.0" target="_blank">here</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Mitchell</p>
+<p class="date">Created: 2024-03-01 Fri 13:20</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

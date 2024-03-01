@@ -1,5 +1,6 @@
 # YouTube Search
 # := CLI for searching YouTube.
+
 path="$HOME/.clisuite/metube/"
 pl_loc="$HOME/Music/Stream/Playlists/"
 
@@ -11,7 +12,8 @@ printHelp(){
     echo "2)  < -d or desc>    <line number of video title>"
     echo "3)  < -p or play>    <line number of video title>"
     echo "4)  < -a or add>     <line number of video title>   <\"Playlist_Title\">"
-    echo "5)  < -e or export>  <\"Playlist_Title\">"
+    echo "5)  < -c or copy>    <YouTube playlist URL>         <\"Local Title\">"
+    echo "6)  < -e or export>  <\"Playlist_Title\">"
     echo "=============================="
 }
 
@@ -44,6 +46,15 @@ elif ( [ $1 == "-a" ] || [ $1 == "add" ] ) && [[ ! -z "$3" ]]; then
     echo $url > ${path}tmpurl.txt
     paste ${path}tmpurl.txt ${path}tmptitle.txt >> ${path}${3}.m3u
     rm ${path}tmptitle.txt ${path}tmpurl.txt
+elif [ $1 == "-c" ] || [ $1 == "copy" ]; then
+    id="$(echo $2 | cut -f2- -d=)"
+    prefix='https://www.youtube.com/playlist?list='
+    fullurl="${prefix}${id}"
+    yt-dlp --print title --print webpage_url "$fullurl" > tempfile
+    grep -e "http" tempfile > urls
+    grep -v "http" tempfile > titles
+    paste urls titles > "$3".m3u
+    rm tempfile; rm urls; rm titles
 elif [ $1 == "-e" ] || [ $1 == "export" ]; then
     cp -v -i ${path}${2}.m3u ${pl_loc}${2}.m3u
 else

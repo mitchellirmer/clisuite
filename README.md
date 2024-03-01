@@ -1,6 +1,11 @@
 Command Line Suite
 ==================
 
+GitHub Pages: https://mitchellirmer.github.io/clisuite/
+
+# 0.  About
+These are my personal scripts that I use to improve my user experience with streamed multi-media and written content.  They are stored here as a backup for me and reference for others that want to practice scripting for regular tasks.  Should you choose to download these, know that it is at your own risk and there is no warranty of any kind.
+
 # 1. readmode   
 
 readmode is a script intended to remove clutter from articles opened in newsboat or w3m/lynx.  It feeds a website URL through cURL and Mozilla readability and opens in w3m.  The idea comes from here: <https://tech.toryanderson.com/2021/06/09/how-to-get-readable-mode-in-emacs-w3m/>  I don't use EMACS (yet(?)) and so I made it a little simpler by writing this script, calling it with an alias in my .zshrc, and adding a macro to my .newsboat/config.  See dependencies.txt for a list of required dependencies, which you must install on your own before using readmode.sh.  
@@ -26,6 +31,3 @@ alias speckify='sh $HOME/.clisuite/speckify/speckify.sh'
 3. To use readmode as a macro from newsboat, add this to your .newsboat/config  
 > macro r set browser "sh $HOME/.clisuite/readmode/readmode.sh" ; open-in-browser ; set browser w3m/lynx/firefox
 4. By default, speckify will save playlists to $HOME/Music/Stream/Playlists/  This can be changed by updating the "pl_loc" variable in the metube.sh and speckify.sh files.
-
-Mitchell Irmer, 2024
---------------------

@@ -1,7 +1,7 @@
   # Speckify Music
   # := Searches all playlists in the folder; returns output to screen and out.m3u playlist.
 
-path="$HOME/.clisuite/speckify/"
+path="$HOME/.clisuite/src/"
 pl_loc="$HOME/Music/Stream/Playlists/"
 
 printHelp(){

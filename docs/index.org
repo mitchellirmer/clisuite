@@ -20,7 +20,7 @@ I put these lines in my scripts so that I can grep the := to be reminded of what
 This will be used to integrate speckify with metube and handle temp files generated while using this script.
 
 #+begin_src sh :tangle "../src/metube.sh"
-path="$HOME/.clisuite/metube/"
+path="$HOME/.clisuite/src/"
 pl_loc="$HOME/Music/Stream/Playlists/"
 #+end_src
 
@@ -107,7 +107,7 @@ I put these lines in my scripts so that I can grep the := to be reminded of what
 This will be used to integrate speckify with metube and handle temp files generated while using this script.
 
 #+begin_src sh :tangle "../src/speckify.sh"
-path="$HOME/.clisuite/speckify/"
+path="$HOME/.clisuite/src/"
 pl_loc="$HOME/Music/Stream/Playlists/"
 #+end_src
 
@@ -172,7 +172,7 @@ The same header stuff I use to make it greppable
 
 *** Internal path for temp files
 #+begin_src sh :tangle "../src/readmode.sh"
-path="$HOME/.clisuite/readmode/"
+path="$HOME/.clisuite/src/"
 #+end_src
 
 *** Main program

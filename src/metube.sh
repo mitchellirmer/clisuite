@@ -1,7 +1,7 @@
 # YouTube Search
 # := CLI for searching YouTube.
 
-path="$HOME/.clisuite/metube/"
+path="$HOME/.clisuite/src/"
 pl_loc="$HOME/Music/Stream/Playlists/"
 
 printHelp(){

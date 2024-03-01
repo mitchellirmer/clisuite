@@ -2,7 +2,6 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="clisuite.css"/>
 
 * Index
-** GitHub repo: https://github.com/mitchellirmer/clisuite
 ** About
 These are my personal scripts that I use to improve my user experience with streamed multi-media and written content.  They are stored here as a backup for me and reference for others that want to practice scripting for regular tasks.  Should you choose to download these, know that it is at your own risk and there is no warranty of any kind.
 ** Usage

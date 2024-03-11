@@ -143,11 +143,11 @@ elif [ $1 == "-c" ] || [ $1 == "choose" ]; then
     mpv --no-video $track
 elif [ $1 == "play" ]; then
     cd $pl_loc
-    list="$2"
+    list=$(ls *.m3u | cut -f1 -d. | fzf)
     mpv --no-video ${pl_loc}${list}.m3u
 elif [ $1 == "shuffle" ]; then
     cd $pl_loc
-    list="$2"
+    list=$(ls *.m3u | cut -f1 -d. | fzf)
     mpv --no-video --shuffle ${pl_loc}${list}.m3u
 elif [ $1 == "library" ]; then
     cd $pl_loc

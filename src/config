@@ -1,0 +1,3 @@
+alias metube='sh $HOME/.clisuite/src/metube.sh'  
+alias readmode='sh $HOME/.clisuite/src/readmode.sh'  
+alias speckify='sh $HOME/.clisuite/src/speckify.sh'

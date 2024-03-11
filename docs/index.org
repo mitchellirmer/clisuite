@@ -184,7 +184,9 @@ w3m ${path}readmodetempfile.html
 ** License
 Mozilla readability has an Apache 2.0 license, found [[file:Licenses/APACHE.md][here]].
 * Dependencies
-
+*** fzf
+#+ATTR_HTML: :target _blank.
+Fuzzy finder for command line lists, found [[https://github.com/junegunn/fzf][here]].
 *** MPV
 #+ATTR_HTML: :target _blank
 A lightweight, command-line video player available [[https://github.com/mpv-player/mpv][here]].

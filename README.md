@@ -22,7 +22,7 @@ speckify is a streaming library user interface.  It uses mpv --no-video to strea
 1. Save/clone into /home/user/.clisuite/  
 2. Add the following to your .zshrc or .bashrc or whatever handles your aliases.  
 
-> # include clisuite
+> ####### include clisuite
 . /$HOME/.clisuite/src/config
 
 3. To use readmode as a macro from newsboat, add this to your .newsboat/config  

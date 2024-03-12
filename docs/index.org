@@ -48,7 +48,8 @@ if [ -z "$1" ]; then
 elif [ $1 == "-s" ] || [ $1 == "search" ]; then
     rm ${path}ytreturn.txt
     yt-dlp --print title --print uploader --print webpage_url "ytsearch$3:$2" > ${path}ytreturn.txt
-    cat -n ${path}ytreturn.txt
+    sel=$(tac ${path}ytreturn.txt | fzf)
+    mpv $sel
 elif [ $1 == "-d" ] || [ $1 == "desc" ]; then
     declare line=$2
     line=$((${line} + 2))
